@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_elements_typos",
+  "info": {
+    "displayName": "typo",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "typo": {
+      "type": "string"
+    }
+  }
+}

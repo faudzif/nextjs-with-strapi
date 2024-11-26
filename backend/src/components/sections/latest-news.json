@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_latest_news",
+  "info": {
+    "displayName": "Latest News",
+    "icon": "cube",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.button-link"
+    }
+  }
+}

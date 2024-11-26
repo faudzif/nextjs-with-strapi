@@ -1,0 +1,56 @@
+options:
+  # env: 
+  automapSubstitutions: true
+  logging: CLOUD_LOGGING_ONLY
+
+steps:
+# pull for cache of main artifact
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'pull-cache'
+  entrypoint: 'bash'
+  args: ['-c', 'docker pull ${_ARTIFACT_TAG}:latest || exit 0']
+  waitFor: ['-']
+
+# build frontend
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'build-artifact'
+  entrypoint: bash
+  args: [
+    '-c',
+    'docker build
+    --build-arg="PORT=8080"
+    -t ${_ARTIFACT_TAG}:$SHORT_SHA
+    -t ${_ARTIFACT_TAG}:latest
+    -f Dockerfile
+    --cache-from ${_ARTIFACT_TAG}:latest
+    . '
+  ]
+
+# push artifact to registry
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'push-artifact'
+  args: [ 'push', '${_ARTIFACT_TAG}:$SHORT_SHA']
+  waitFor: ['build-artifact']
+
+# deploy to CloudRun
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  id: 'deploy-artifact'
+  entrypoint: bash
+  args: [
+    '-c',
+    'gcloud run deploy $_TARGET_SERVICE
+    --image ${_ARTIFACT_TAG}:$SHORT_SHA
+    --region ${_TARGET_REGION}
+    --set-secrets="NEXT_PUBLIC_STRAPI_API_TOKEN=${_TARGET_ENV}_NEXT_PUBLIC_STRAPI_API_TOKEN:latest"
+    --set-secrets="NEXT_PUBLIC_PAGE_LIMIT=${_TARGET_ENV}_NEXT_PUBLIC_PAGE_LIMIT:latest" 
+    --set-secrets="NEXT_PUBLIC_STRAPI_FORM_SUBMISSION_TOKEN=${_TARGET_ENV}_NEXT_PUBLIC_STRAPI_FORM_SUBMISSION_TOKEN:latest" 
+    --set-secrets="NEXT_PUBLIC_STRAPI_API_URL=${_TARGET_ENV}_NEXT_PUBLIC_STRAPI_API_URL:latest"
+    --set-secrets="NEXT_PUBLIC_MAPS_API_KEY=${_TARGET_ENV}_NEXT_PUBLIC_MAPS_API_KEY:latest"
+    --allow-unauthenticated
+    --platform managed'
+  ]
+  # secretEnv: []
+  waitFor: ['push-artifact']
+
+images: ['${_ARTIFACT_TAG}:latest']
+

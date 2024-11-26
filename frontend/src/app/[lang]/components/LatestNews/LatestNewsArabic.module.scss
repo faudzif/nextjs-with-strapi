@@ -1,0 +1,12 @@
+@use "../../assets/styles/function/" as *;
+
+.latest-news {
+    background: red;
+    padding-block: 120px;
+    &-listing {
+        padding-block: 32px;
+    }
+    &-title {
+        color: $blue;
+    }
+}

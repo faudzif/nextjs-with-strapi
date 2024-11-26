@@ -1,0 +1,26 @@
+ @use "../function/"as *;
+
+ .breadcrumbs {
+     margin-bottom: 16px;
+
+     @include media-breakpoint-up(lg) {
+         margin-bottom: 8px;
+     }
+
+     &__links {
+         color: $white;
+
+         .label-small--regular {
+             white-space   : nowrap;
+             text-transform: uppercase;
+         }
+     }
+
+     &__separator {
+         margin   : 0 16px;
+         font-size: 12px;
+         opacity  : 0.25;
+     }
+ }
+
+ html[lang="ar"] {}

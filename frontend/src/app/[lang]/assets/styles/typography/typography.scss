@@ -1,0 +1,286 @@
+@use "../function/"as *;
+
+h1,
+.h1 {
+    @include font(48, 120%, 600);
+    letter-spacing: -0.24px;
+
+    @include media-breakpoint-up(md) {
+        @include font(64, 120%, 600);
+        letter-spacing: -0.32px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        @include font(80, 120%, 600);
+        letter-spacing: -0.4px;
+    }
+}
+
+h2,
+.h2 {
+    @include font(32, 120%, 500);
+    letter-spacing: 0;
+
+    @include media-breakpoint-up(md) {
+        @include font(48, 120%, 500);
+    }
+
+    @include media-breakpoint-up(xl) {
+        @include font(64, 120%, 500);
+    }
+}
+
+h3,
+.h3 {
+    @include font(32, 120%, 500);
+    letter-spacing: -0.32px;
+
+    @include media-breakpoint-up(xl) {
+        @include font(48, 120%, 500);
+        letter-spacing: -0.48px;
+    }
+}
+
+h4,
+.h4,
+blockquote {
+    @include font(24, 120%, 500);
+    letter-spacing: 0;
+
+    @include media-breakpoint-up(xl) {
+        @include font(32, 120%, 500);
+    }
+}
+
+h5,
+.h5 {
+    @include font(18, 120%, 500);
+    letter-spacing: 0;
+
+    @include media-breakpoint-up(xl) {
+        @include font(24, 120%, 500);
+    }
+}
+
+h6,
+.h6 {
+    @include font(16, 120%, 500);
+    letter-spacing: 0;
+
+    @include media-breakpoint-up(xl) {
+        @include font(20, 120%, 500);
+    }
+}
+
+.overline {
+    @include font(12, 100%, 400);
+    letter-spacing      : 2.88px;
+    text-transform      : uppercase;
+    text-decoration-line: none;
+
+
+    @include media-breakpoint-up(xl) {
+        @include font(16, 100%, 400);
+        letter-spacing: 3.84px;
+    }
+}
+
+.body-small {
+    @include font(14, 140%, 300);
+
+    &--bold {
+        font-weight: 600;
+    }
+}
+
+.body-normal {
+    @include font(16, 150%, 300);
+
+    @include media-breakpoint-up(md) {
+        line-height: 160%;
+    }
+
+    &--bold {
+        font-weight: 600;
+    }
+}
+
+.body-large {
+    @include font(16, 140%, 400);
+    letter-spacing: -0.08px;
+
+    @include media-breakpoint-up(xl) {
+        @include font(20, 140%, 400);
+        letter-spacing: -0.1px;
+    }
+}
+
+.body-extra-large {
+    @include font(20, 100%, 300);
+
+    @include media-breakpoint-up(md) {
+        @include font(24, 100%, 300);
+    }
+}
+
+label,
+.label {
+    @include font(14, 100%, 500);
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+}
+
+.label-small {
+    @include font(12, 100%, 500);
+    letter-spacing: 1.44px;
+    text-transform: uppercase;
+
+    &--regular {
+        letter-spacing: 1.92px;
+        @include font(12, 100%, 400);
+    }
+}
+
+.button {
+    @include font(14, 100%, 600);
+    letter-spacing      : 1.68px;
+    text-transform      : uppercase;
+    text-decoration-line: none;
+}
+
+html[lang="ar"] {
+
+    h1,
+    .h1 {
+        @include font(48, 120%, 700);
+
+        @include media-breakpoint-up(md) {
+            @include font(64, 120%, 700);
+        }
+
+        @include media-breakpoint-up(xl) {
+            @include font(80, 140%, 700);
+        }
+    }
+
+    h2,
+    .h2 {
+        @include font(32, 180%, 700);
+
+        @include media-breakpoint-up(md) {
+            @include font(48, 140%, 700);
+        }
+
+        @include media-breakpoint-up(xl) {
+            @include font(64, 140%, 700);
+        }
+    }
+
+    h3,
+    .h3 {
+        @include font(32, 120%, 700);
+
+        @include media-breakpoint-up(md) {
+            @include font(32, 130%, 700);
+        }
+
+        @include media-breakpoint-up(xl) {
+            @include font(48, 130%, 700);
+        }
+    }
+
+    h4,
+    .h4,
+    blockquote {
+        @include font(24, 160%, 700);
+
+        @include media-breakpoint-up(md) {
+            @include font(24, 140%, 700);
+        }
+
+        @include media-breakpoint-up(xl) {
+            @include font(32, 140%, 700);
+        }
+    }
+
+    h5,
+    .h5 {
+        @include font(18, 120%, 700);
+
+        @include media-breakpoint-up(md) {
+            @include font(18, 140%, 700);
+        }
+
+        @include media-breakpoint-up(xl) {
+            @include font(24, 140%, 700);
+        }
+    }
+
+    h6,
+    .h6 {
+        @include font(16, 120%, 700);
+
+        @include media-breakpoint-up(xl) {
+            @include font(20, 120%, 700);
+        }
+    }
+
+    .overline {
+        @include font(18, 100%, 400);
+        text-decoration-line   : none;
+        // opacity             : 0.8;
+
+        @include media-breakpoint-up(xl) {
+            @include font(24, 100%, 400);
+        }
+    }
+
+    .body-small {
+        @include font(16, 100%, 400);
+
+        &--bold {
+            font-weight: 600;
+        }
+    }
+
+    .body-normal {
+        @include font(18, 140%, 400);
+
+        @include media-breakpoint-up(md) {
+            line-height: 160%;
+        }
+
+        &--bold {
+            font-weight: 700;
+        }
+    }
+
+    .body-large {
+        @include font(20, 140%, 400);
+
+        @include media-breakpoint-up(md) {
+            line-height: 140%;
+        }
+    }
+
+    .body-extra-large {
+        @include font(24, 100%, 400);
+    }
+
+    label,
+    .label {
+        @include font(18, 100%, 500);
+    }
+
+    .label-small {
+        @include font(16, 100%, 500);
+
+        &--regular {
+            @include font(16, 100%, 500);
+        }
+    }
+
+    .button {
+        @include font(18, 100%, 700);
+    }
+}

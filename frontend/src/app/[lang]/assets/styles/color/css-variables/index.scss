@@ -1,0 +1,48 @@
+:root {
+    // CORE COLORS
+    --dark-blue: #122e44;
+    --blue     : #002d71;
+    --red      : #ed1c24;
+
+    // NEUTRAL COLORS
+    --white: #fff;
+    --black: #000;
+
+    // SECONDARY COLORS
+    --yellow     : #ffc609;
+    --green      : #69bd45;
+    --purple     : #885a9a;
+    --dark-purple: #8951AE;
+    --bright-blue: #3fa9e0;
+    --medium-blue: #0059a1;
+    --orange     : #f47c20;
+
+    // THEME BG COLORS
+    --theme-white-to-dark-blue   : #fff;
+    --theme-white-to-blue        : #fff;
+    --theme-dark-blue-to-white   : #122e44;
+    --theme-blue-to-white        : #002d71;
+    --theme-medium-blue-to-white : #0059a1;
+    --theme-blue-to-blue         : #002d71;
+    --theme-dark-blue-to-blue    : #122e44;
+    --theme-red-to-accessible-red: #ed1c24;
+    --accessible-red             : #ed1c24;
+
+    //slide transform
+    --last-stack-card-position: -36px;
+    --last-stack-card-scale   : 0.5;
+}
+
+/* For Dark Mode */
+.dark-mode {
+    // THEME BG COLORS
+    --theme-white-to-blue        : #00213A;
+    --theme-white-to-dark-blue   : #122e44;
+    --theme-dark-blue-to-white   : #ffffff;
+    --theme-blue-to-white        : #ffffff;
+    --theme-medium-blue-to-white : #ffffff;
+    --theme-blue-to-blue         : #00213A;
+    --theme-dark-blue-to-blue    : #00213A;
+    --theme-red-to-accessible-red: #FF323A;
+    --accessible-red             : #FF323A;
+}

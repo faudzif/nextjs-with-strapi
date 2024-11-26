@@ -1,0 +1,24 @@
+@forward "../color/";
+
+$dark-blue    : var(--dark-blue);
+$blue         : var(--blue);
+$red          : var(--red);
+$white        : var(--white);
+$black        : var(--black);
+$yellow       : var(--yellow);
+$green        : var(--green);
+$purple       : var(--purple);
+$bright-blue  : var(--bright-blue);
+$medium-blue  : var(--medium-blue);
+$orange       : var(--orange);
+$white-to-blue:var(--white-to-blue);
+$blue-to-white:var(--blue-to-white);
+
+// FONTS VARIABLES
+$primary-font : "Outfit",
+sans-serif;
+
+$primary-font-ar: 'Tajawal';
+
+// TRANSITION VALUE
+$TRANSITION_VALUE: 4s;

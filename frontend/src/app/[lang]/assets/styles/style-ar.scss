@@ -1,0 +1,15 @@
+@use "./tailwind/"as *;
+
+/* Function */
+@use "./function/"as *;
+
+/* CSS Variables */
+@use "./color/css-variables/"as *;
+
+/* Typography */
+@use "typography/"as *;
+
+/* Global Styling */
+@use "./globals/index-ar.scss";
+
+

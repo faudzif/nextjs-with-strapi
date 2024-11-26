@@ -1,0 +1,319 @@
+ @use "../function/"as *;
+
+ $button-border-width: 1;
+
+ .btn {
+     border-radius : 32px;
+     border        : 0 none;
+     background    : transparent;
+     text-transform: uppercase;
+     height        : 40px;
+     @include font(14, 100%, 600);
+     letter-spacing : 1.68px;
+     padding        : 12px 20px;
+     transition     : all 0.4s cubic-bezier(0.68, -0.85, 0.265, 3.55);
+     display        : inline-flex;
+     align-items    : center;
+     justify-content: center;
+
+     &:hover {
+         height : 44px;
+         margin : -2px;
+         padding: 16px 22px;
+     }
+
+     &-primary {
+         background-color: $red;
+         color           : $white;
+
+         &:hover {
+             background-color: $red;
+         }
+
+         &:focus {
+             background-color: #cc181f;
+         }
+
+         &:disabled,
+         &.disabled {
+             background-color: #bfbfbf;
+             color           : $white;
+             height          : 40px;
+             padding         : 10px 20px;
+             margin          : 0;
+         }
+
+         &.btn-white {
+             background-color: $white;
+             color           : $blue;
+
+             &:focus {
+                 background: rgba(255, 255, 255, 0.8);
+             }
+
+             &:disabled,
+             &.disabled {
+                 background-color: #bfbfbf;
+                 color           : $white;
+                 height          : 40px;
+                 padding         : 10px 20px;
+                 margin          : 0;
+             }
+         }
+
+         &.btn-blue {
+             background-color: rgb(245 248 251);
+             color           : $blue;
+
+             &:hover,
+             &.active {
+                 background: $blue;
+                 color     : $white;
+             }
+         }
+     }
+
+     &-secondary {
+         background-color: transparent;
+         color           : $blue;
+         border          : $button-border-width + px solid $blue;
+
+         &:focus {
+             border-color: $dark-blue;
+         }
+
+         &:disabled,
+         &.disabled {
+             border-color: rgba(0, 0, 0, 0.25);
+             color       : rgba(0, 0, 0, 0.25);
+             height      : 40px;
+             padding     : 10px 20px;
+             margin      : 0;
+         }
+
+         &.btn-transparent {
+             border: 1px solid rgba(255, 255, 255, 0.3);
+             color : $white;
+
+             &:hover {
+                 border-color: $white;
+             }
+
+             &:focus {
+                 border-color: rgba(255, 255, 255, 0.3);
+                 color       : rgba(255, 255, 255, 0.8);
+             }
+
+             &:disabled,
+             &.disabled {
+                 border-color: rgba(255, 255, 255, 0.25);
+                 color       : rgba(255, 255, 255, 0.25);
+             }
+         }
+     }
+
+     &:hover {
+         text-decoration: none;
+     }
+ }
+
+ .signup-btn {
+     @include font(16, 150%, 600);
+     text-decoration : none;
+     position        : relative;
+     background-color: $red;
+     color           : $white;
+     border-radius   : 100px;
+     padding         : 11px 11px 11px 16px;
+     height          : 48px;
+     display         : inline-flex;
+     transition      : all 0.4s cubic-bezier(0.68, -0.85, 0.265, 3.55);
+     white-space     : nowrap;
+     justify-content : center;
+     align-items     : center;
+
+     @include media-breakpoint-up(lg) {
+         min-width: 150px;
+         @include font(16, 160%, 600);
+     }
+
+     &:focus {
+         background-color: #cc181f;
+     }
+
+     &:disabled,
+     &.disabled {
+         background-color: rgba(0, 0, 0, 0.25);
+     }
+
+     .signup-btn-arrow {
+         width              : 24px;
+         height             : 24px;
+         margin-inline-start: 10px;
+         background-color   : $white;
+         border-radius      : 32px;
+         display            : flex;
+         align-items        : center;
+         justify-content    : center;
+
+         @include media-breakpoint-up(lg) {
+             margin-inline-start: 16px;
+         }
+
+         .material-symbols-outlined {
+             color    : $blue;
+             font-size: 16px;
+         }
+
+     }
+
+     @include media-breakpoint-up(lg) {
+         padding: 12px 24px;
+     }
+
+     &.large {
+         width          : 100%;
+         display        : flex;
+         justify-content: center;
+         align-items    : center;
+         height         : 64px;
+         font-size      : 24px;
+         font-weight    : 500;
+         padding        : 0;
+
+         @include media-breakpoint-down(xl) {
+             justify-content: start;
+         }
+
+         @include media-breakpoint-up(xl) {
+             font-size: 32px;
+         }
+
+
+         .signup-btn-text {
+             @include media-breakpoint-down(xl) {
+                 width: calc(100% - 55px);
+             }
+         }
+
+         .signup-btn-arrow {
+             width   : 48px;
+             height  : 48px;
+             position: absolute;
+             right   : 8px;
+
+             @include media-breakpoint-up(xl) {
+                 position: static;
+             }
+         }
+
+         .material-symbols-outlined {
+             font-size: 24px;
+         }
+
+         @include media-breakpoint-up(xl) {
+             @include font(32, 160%, 500);
+             height : 100px;
+             padding: 0;
+         }
+
+     }
+
+     .loader {
+         display      : none;
+         position     : relative;
+         margin       : auto;
+         width        : 60px;
+         aspect-ratio : 1;
+         border-radius: 100vmin;
+         overflow     : hidden;
+         padding      : 20px;
+
+         @include media-breakpoint-up(xl) {
+             width: 80px;
+         }
+     }
+
+     .loader::before {
+         content    : '';
+         display    : block;
+         padding-top: 100%;
+     }
+
+     .circular {
+         width           : 100%;
+         height          : 100%;
+         position        : absolute;
+         inset           : 0;
+         margin          : auto;
+         transform-origin: center center;
+         animation       : 0.9s linear 0s infinite rotate;
+     }
+
+     .path {
+         stroke           : $white;
+         stroke-dasharray : 55, 20;
+         stroke-dashoffset: 0;
+         stroke-linecap   : round;
+     }
+
+     &.loading {
+         pointer-events: none;
+
+         .signup-btn-text,
+         .signup-btn-arrow {
+             display: none;
+         }
+
+         .loader {
+             display: block;
+         }
+     }
+ }
+
+ .dark-mode {
+     .btn-primary.btn-blue {
+         background-color: $dark-blue;
+         color           : $white;
+
+         &:hover,
+         &.active {
+             background-color: $white;
+             color           : $blue;
+         }
+     }
+ }
+
+ @keyframes rotate {
+     to {
+         transform: rotate(1turn);
+     }
+ }
+
+ html[lang="ar"] {
+     .btn {
+         @include font(18, 100%, 700);
+         letter-spacing: normal;
+     }
+
+     .signup-btn {
+         @include font(16, 100%, 600);
+
+         .signup-btn-arrow {
+             transform: scaleX(-1);
+         }
+
+         &.large {
+             @include font(24, 120%, 700);
+
+             @include media-breakpoint-up(xl) {
+                 @include font(32, 140%, 700);
+             }
+
+             .signup-btn-arrow {
+                 right: auto;
+                 left : 8px;
+             }
+         }
+     }
+ }
